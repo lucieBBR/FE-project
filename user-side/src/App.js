@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import bgImage from "./img/bg-image.png";
-import logo from "./img/logo2.png"
+import gridLines from "./img/grid-lines2.png"
+import logo from "./img/logo.png";
 import SearchBar from "./components/SearchBar";
+import RegionsGrid from "./components/RegionsGrid";
 
 
 // import "./App.css";
@@ -39,17 +40,26 @@ function App() {
       });
   };
   return (
-    <div className="h-screen relative w-screen">
-      <img src={bgImage} className="-z-50 absolute h-full w-full object-cover"></img>
-      <div className="flex justify-between content-center mr-32">
-      <SearchBar className="z-10"/>
-      <img src={logo} className="h-[210px]"></img>
+    <div className="mb-20 relative">
+            <img src={gridLines} className="absolute mt-32 w-screen h-[800px]"></img>
+      {/* <img
+        src={bgImage} id="bgImage"
+        className="-z-50 absolute"
+      ></img> */}
 
+      {/* search bar and logo */}
+      <div className="flex justify-between content-center mr-28">
+        <SearchBar/>
+        <img src={logo} className="h-[210px]"></img>
       </div>
-      <h1 className="text-3xl text-red-500 font-bold underline z-10 mx-20">
-        Animals world!
-      </h1>
 
+      {/* grid*/}
+      <div className="mx-10">
+        <h3 className="ml-16 font-bold text-3xl text-[#2F430D] bg-[#c57e13] w-[470px] mb-12">
+          O descobreix els que viuen aquí:
+        </h3>
+        <RegionsGrid appRegions={regions}/>
+      </div>
 
       {/* <ul>
       {animals.map(a =>(
