@@ -8,6 +8,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var animalsRouter = require('./routes/animals');
+var regionsRouter = require('./routes/regions');
 
 var app = express();
 
@@ -20,5 +21,6 @@ app.use(cors());  // add after 'app' is created
 
 app.use('/', indexRouter);
 app.use('/animals', animalsRouter);
+app.use('/regions', regionsRouter);
 
 module.exports = app;
