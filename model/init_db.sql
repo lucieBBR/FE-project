@@ -7,12 +7,12 @@ SET foreign_key_checks = 1;
  
 CREATE TABLE animals (
 	id int NOT NULL AUTO_INCREMENT,
-	Common_name varchar(255) NOT NULL,
+	common_name varchar(255) NOT NULL,
 	species varchar(255) NOT NULL UNIQUE,
 	image_src varchar(255) NOT NULL UNIQUE,
 	situation_state TEXT(300) NOT NULL,
 	habitat TEXT(300) NOT NULL,
-	FK_related_animals varchar(255),	
+	fk_related_animals varchar(255),	
 	PRIMARY KEY (id)
     -- FOREIGN KEY (FK_related_animals) REFERENCES animals(id) ON DELETE CASCADE
     
@@ -27,17 +27,17 @@ CREATE TABLE regions (
 );
 
 CREATE TABLE animals_regions (
-	FK_animals int NOT NULL,
-	FK_regions int NOT NULL,
-    PRIMARY KEY (FK_animals, FK_regions),
-    FOREIGN KEY (FK_animals) REFERENCES animals(id) ON DELETE CASCADE,
-    FOREIGN KEY (FK_regions) REFERENCES regions(id) ON DELETE CASCADE
+	fk_animals int NOT NULL,
+	fk_regions int NOT NULL,
+    PRIMARY KEY (fk_animals, fk_regions),
+    FOREIGN KEY (fk_animals) REFERENCES animals(id) ON DELETE CASCADE,
+    FOREIGN KEY (fk_regions) REFERENCES regions(id) ON DELETE CASCADE
 
 
 );
 
  
-INSERT INTO animals (common_name, species, image_src, situation_state, habitat, FK_related_animals)  
+INSERT INTO animals (common_name, species, image_src, situation_state, habitat, fk_related_animals)  
     VALUES ('Xot',
     'Otus scops',
     'image_src1',
@@ -61,7 +61,7 @@ INSERT INTO regions (region_name, region_description)
 
     ("Aiguamolls de l'Empordà", "El Parc Natural dels Aiguamolls de l’Empordà va ser creat el 28 d’octubre de 1983. Els Aiguamolls de l'Empordà són una de les principals zones humides de Catalunya, juntament amb els deltes de l'Ebre i el Llobregat. Es troben ubicats a la plana empordanesa, entre les desembocadures dels rius Fluvià i Muga, en un espai caracteritzat pels cursos fluvials actuals, les antigues desembocadures dels rius, i els sistemes de canalització i rec dels conreus que històricament s'han donat en aquest lloc ric en aigua dolça.");
 
-INSERT INTO animals_regions (FK_animals, FK_regions)  
+INSERT INTO animals_regions (fk_animals, fk_regions)  
     VALUES  
     (1, 1),
     (1, 2), 
