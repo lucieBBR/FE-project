@@ -9,7 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./img/bg-image.png");
+  background-image: url("./img/bg-image2.png");
+ 
 }
 
 
@@ -28,4 +29,16 @@ h3{
 
 button{
   font-family: 'Bebas Neue', cursive;
+}
+
+.Collserola{
+  background-color: #2F430D;
+}
+
+.Montserrat{
+  background-color: #c57e13;
+}
+
+.Montserrat:hover{
+  background-color: #2F430D !important;
 }
