@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+// import { NavLink } from "react-router-dom";
 import gridLines from "../img/grid-lines.png"
+import animalCards from "../views/AnimalCards";
 
 function RegionsGrid(props) {
   return (

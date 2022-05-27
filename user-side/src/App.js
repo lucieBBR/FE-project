@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+// import { Route, Routes} from "react-router-dom"
 import gridLines from "./img/grid-lines2.png";
 import logo from "./img/logo.png";
 import SearchBar from "./components/SearchBar";
 import RegionsGrid from "./components/RegionsGrid";
+import AnimalCards from "./views/AnimalCards";
+import NotFound from "./views/NotFound";
 
-// import "./App.css";
+
 
 function App() {
   let [animals, setAnimals] = useState([]);
@@ -102,6 +105,9 @@ function App() {
       ))
       }
     </ul> */}
+    <AnimalCards/>
+    <NotFound/>
+
     </div>
   );
 }
