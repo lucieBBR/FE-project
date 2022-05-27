@@ -47,18 +47,14 @@ function App() {
   // show animal() --->
 
   const searchAnimal = async (animalName) => {
-    let animal = animals.find((a) => a.common_name || a.species === animalName);
+    // let animal = animals.find((a) => a.common_name || a.species === animalName);
+    let animal= "";
     try {
-      if (animal) {
-        let response = await fetch(`/animals`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ inputAnimal: input }),
-        });
+      if (animalName) {
+        let response = await fetch(`/animals?name=${animalName}`);
         if (response.ok) {
           animal = await response.json();
+  
         } else {
           console.log("Server error: ", response.status, response.statusText);
         }

@@ -10,8 +10,8 @@ function SearchBar(props) {
   const [newInput, setNewInput] = useState(EMPTY_FORM);
 
   const handleChange = e => {
-    props.setInput(e.target.value);
-    console.log("the handleChange in working")
+    setNewInput(e.target.value);
+    console.log("the handleChange is working")
   };
 
   const handleSubmit = e => {
