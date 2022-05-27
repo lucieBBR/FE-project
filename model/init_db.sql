@@ -59,7 +59,7 @@ INSERT INTO regions (region_name, region_description)
 
     ('Montserrat', "Montserrat és la muntanya més representativa de Catalunya. L'origen geològic d'aquest massís és sedimentari. Les roques de Montserrat són molt dures i molt resistents a l'erosió i estan formades per un conglomerat de còdols units per un ciment calcari. Al llarg del temps, el vent i la pluja han modelat les agulles o monòlits, des dels quals, es pot admirar una meravellosa panoràmica des dels Pirineus al mar i els dies clars, fins i tot, s'arriba a veure l'illa de Mallorca. Té un biòtop molt especial que permet que una sèrie d'espècies de fauna i flora trobin el refugi i l'aliment que no tindrien en altres zones."),
 
-    ("Aiguamolls de l'Empordà", "El Parc Natural dels Aiguamolls de l’Empordà és una de les principals zones humides de Catalunya. Va ser creat el 28 d’octubre de 1983 gràcies a la lliuta d'un jovs ecologistes contra l'espoli urbanístic. Situat entre les desembocadures dels rius Fluvià i Muga, actualment és una de les zones més riques en biodiversitat i ha sigut escollida per la reintroducció de diverses espècies.");
+    ("Aiguamolls de l'Empordà", "El Parc Natural dels Aiguamolls de l'Empordà és una de les principals zones humides de Catalunya junt amb el Delta de l'Ebre i del Llobregat. Va ser creat el 28 d'octubre de 1983 gràcies a la lluita de joves ecologistes contra l'espoli urbanístic. Situat entre les desembocadures dels rius Fluvià i Muga, actualment és una de les zones més riques en biodiversitat i ha sigut escollida per la reintroducció de diverses espècies com les daines o les llúdrigues.");
 
 INSERT INTO animals_regions (fk_animals, fk_regions)  
     VALUES  
