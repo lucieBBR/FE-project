@@ -49,6 +49,7 @@ function App() {
   const searchAnimal = async (animalName) => {
     // let animal = animals.find((a) => a.common_name || a.species === animalName);
     let animal= "";
+    let notFound = "Aquest animal no es troba en la nostra base de dades"
     try {
       if (animalName) {
         let response = await fetch(`/animals?name=${animalName}`);
@@ -63,9 +64,15 @@ function App() {
     } catch (error) {
       console.log("Network error: ", error.message);
     }
+    if(animal.length !== 0 ){
+      console.log(animal);
+      return animal;
+    }else {
+      console.log("animal not found")
+      return notFound;
+    }
 
-    console.log(animal);
-  };
+  };  
 
   return (
     <div className="mb-20 relative">
@@ -101,7 +108,7 @@ function App() {
       ))
       }
     </ul> */}
-    <AnimalCards/>
+    <AnimalCards searchAnimalCb={searchAnimal}/>
     <NotFound/>
 
     </div>
