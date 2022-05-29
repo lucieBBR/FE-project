@@ -42,8 +42,8 @@ function animalCards(props) {
             </p>
           </div>
           <div className="flex flex-col items-end gap-4">
-            <h3 className="font-bold text-xl text-[#2F430D] bg-[#c57e13] w-[166px]">
-              Busca un animal:
+            <h3 className="font-bold text-xl text-[#2F430D] bg-[#c57e13] w-[188px]">
+            Vols saber-ne més?
             </h3>
             <button className="bg-[#2F430D] px-10 rounded-lg text-white font-bold py-1 text-lg pb-0.5 hover:bg-[#c57e13] hover:shadow-2xl hover:shadow-white/50">
               Vés-hi!
@@ -51,8 +51,8 @@ function animalCards(props) {
           </div>
         </div>
       </div>
-      <div className="flex justify-center">
-        <button className="flex gap-4 hover:-translate-x-6 mb-4">
+      {/* <div className="flex justify-center"> */}
+        <button className="flex ml-16 gap-4 hover:-translate-x-6 mb-10">
           <img
             src={arrow}
             className="h-10 mt-20 ml-16 bg-blend-color hover:animate-ping"
@@ -61,7 +61,7 @@ function animalCards(props) {
             Torna a l'inici
           </h1>
         </button>
-      </div>
+      {/* </div> */}
       {/* ----> all the animals
       
       
