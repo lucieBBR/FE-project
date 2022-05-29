@@ -7,11 +7,10 @@ import RegionsGrid from "./components/RegionsGrid";
 import AnimalCards from "./views/AnimalCards";
 import NotFound from "./views/NotFound";
 
-
-
 function App() {
   let [animals, setAnimals] = useState([]);
   let [regions, setRegions] = useState([]);
+  let [inputResult, setInputResult] = useState([]);
   let [input, setInput] = useState("");
 
   useEffect(() => {
@@ -47,15 +46,14 @@ function App() {
   // show animal() --->
 
   const searchAnimal = async (animalName) => {
-    // let animal = animals.find((a) => a.common_name || a.species === animalName);
-    let animal= "";
-    let notFound = "Aquest animal no es troba en la nostra base de dades"
+    let animal = null;
+    let notFound =
+      "Aquest animal no es troba en la nostra base de dades" + animalName;
     try {
       if (animalName) {
         let response = await fetch(`/animals?name=${animalName}`);
         if (response.ok) {
           animal = await response.json();
-  
         } else {
           console.log("Server error: ", response.status, response.statusText);
         }
@@ -64,15 +62,14 @@ function App() {
     } catch (error) {
       console.log("Network error: ", error.message);
     }
-    if(animal.length !== 0 ){
-      console.log(animal);
-      return animal;
-    }else {
-      console.log("animal not found")
-      return notFound;
+    if (animal.length !== 0) {
+      console.log(animal[0]);
+      setInputResult(animal[0]);
+    } else {
+      console.log("animal not found");
+      setInputResult(notFound);
     }
-
-  };  
+  };
 
   return (
     <div className="mb-20 relative">
@@ -84,7 +81,7 @@ function App() {
 
       {/* search bar and logo */}
       <div className="flex justify-between content-center mr-28">
-        <SearchBar searchAnimalCb={searchAnimal}/>
+        <SearchBar searchAnimalCb={searchAnimal} />
         <img src={logo} className="h-[210px]"></img>
       </div>
 
@@ -96,21 +93,15 @@ function App() {
         <RegionsGrid appRegions={regions} />
       </div>
 
-      {/* <ul>
-      {animals.map(a =>(
-        <li key={a.id}> {a.common_name} </li>
-      ))
-      }
-    </ul>
-    <ul>
-      {regions.map(r =>(
-        <li key={r.id}> {r.region_name} </li>
-      ))
-      }
-    </ul> */}
-    <AnimalCards searchAnimalCb={searchAnimal}/>
-    <NotFound/>
 
+    {inputResult.length !== 0 &&(
+         typeof inputResult !== "string" ? (
+          <AnimalCards inputResultFromApp={inputResult} animalsFromApp={animals} />
+        ) : (
+          <NotFound inputResultFromApp={inputResult} />
+        )
+    )
+}
     </div>
   );
 }
