@@ -22,7 +22,7 @@ function makeWhereFromFilters(query) {
   let searchWord = '';
 
   if (query.name) {
-      searchWord += `common_name= '${query.name}' `;
+      searchWord += `common_name= '${query.name}' OR species='${query.name}'`;
   }
 
   return searchWord;
@@ -42,10 +42,10 @@ router.get("/", async (req, res) => {
   adding the WHERE clause to your SELECT * FROM animals statement */
   
   if(where) {
-    sql += ` WHERE ${where}`;
+    sql += ` WHERE ${where};`;
   }
 
-  
+  // SELECT * FROM animals WHERE common_name= 'elefant' OR species='vulpes vulpes'
   /* Use the sql statement to get the data from your database
   */
 

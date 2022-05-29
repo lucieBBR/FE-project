@@ -40,7 +40,7 @@ CREATE TABLE animals_regions (
 INSERT INTO animals (common_name, species, image_src, situation_state, habitat, fk_related_animals)  
     VALUES ('Xot',
     'Otus scops',
-    'image_src1',
+    '../img/xot.png',
     'Es tracta d’una espècie protegida. 
     A Collserola és bastant comú, però està catalogada com a vulnerable a Catalunya. Es calculen de 10.000 a 14.000 individus madurs.',
     'Viu en zones urbanitzades, zones de conreus, pinars, alzinars i boscos de ribera.',

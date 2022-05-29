@@ -72,39 +72,46 @@ function App() {
 
   return (
     <div className="mb-20 relative">
-
-{
-  inputResult.length === 0 &&  <div><img src={gridLines} className="absolute mt-32 w-screen h-[800px]"></img> 
-      {/* search bar and logo  */}
+      {inputResult.length === 0 && (
+        <img
+          src={gridLines}
+          className="absolute mt-32 w-screen h-[800px]"
+        ></img>
+      )}
+      <div>
+        {/* search bar and logo  */}
         <div className="flex justify-between content-center mr-28">
-        <div className="flex flex-col">
-        <h3 className="ml-32 font-bold text-xl text-[#2F430D] bg-[#c57e13] w-[166px] mt-20">Busca un animal:</h3>
-        <SearchBar searchAnimalCb={searchAnimal} />
-        </div>
-        <img src={logo} className="h-[210px]"></img>
+          <div className="flex flex-col">
+            <h3 className="ml-32 font-bold text-xl text-[#2F430D] bg-[#c57e13] w-[166px] mt-16">
+              Busca un animal:
+            </h3>
+            <SearchBar searchAnimalCb={searchAnimal} />
+          </div>
+          <img src={logo} className="h-[200px]"></img>
         </div>
       </div>
-    
-}
 
-
-      {inputResult.length !== 0 ?
-        (typeof inputResult !== "string" ? (
+      {inputResult.length !== 0 ? (
+        typeof inputResult !== "string" ? (
           <AnimalCards
             inputResultFromApp={inputResult}
             animalsFromApp={animals}
           />
         ) : (
-          <NotFound inputResultFromApp={inputResult} appRegions={regions} searchAnimalCb={searchAnimal} />
-        )) :      /* grid*/
+          <NotFound
+            inputResultFromApp={inputResult}
+            appRegions={regions}
+            searchAnimalCb={searchAnimal}
+          />
+        ) /* grid*/
+      ) : (
         <div className="mx-10">
           <h3 className="ml-16 font-bold text-3xl text-[#2F430D] bg-[#c57e13] w-[470px] mb-12">
             O descobreix els que viuen aquí:
           </h3>
           <RegionsGrid appRegions={regions} />
-        </div> }
-    
-
+        </div>
+      )}
     </div>
   );
 }
