@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import xotImage from "../img/xot.png";
+// import xotImage from "../img/xot.png";
 import arrow from "../img/arrow-icon1.png";
 
 function animalCards(props) {
   return (
     <div>
       <div className="flex ml-8 mt-8">
-        {/* <img src={props.inputResultFromApp.image_src}/> */}
-        <img src={xotImage} className="w-[800px]" />
+        <img src={props.inputResultFromApp.image_src}/>
+        {/* <img src={xotImage} className="w-[800px]" /> */}
         <div className="mr-20">
           <h1 className="text-white text-6xl text-center bg-[#2f430d75]">
             {props.inputResultFromApp.common_name}
