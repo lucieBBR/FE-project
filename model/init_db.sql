@@ -48,14 +48,14 @@ INSERT INTO animals (common_name, species, image_src, situation_state, habitat, 
 
     ('Guineu',
     'Vulpes vulpes',
-    'image_src2',
+    '/guineu.png',
     'És un mamífer resilient i molt estès per tota Catalunya a pesar de la gran persecució humana que ha patit degut a que ha estat considerat una alimanya i es va intentar exterminar.',
     'Viu en zones boscoses i en zones properes a pobles, ciutats, càmpings i abocadors.
     La podem trobar tant a altitus baixes com a alta muntanya.', '1,3'),
 
     ('Daina',
     'Dama dama',
-    'image_src3',
+    '/daina.png',
     "Des de molt antic ha estat caçada en estat salvatge i va ésser eliminada de la major part dels nostres boscos en segles passats.
     Actualment ha esta reintroduïda en algunes zones dels Pirineus i en el Parc Natural dels Aiguamolls de l'Empordà.",
     'Viu en boscos de muntanya amb clarianes on hi hagi herba.',
@@ -63,7 +63,7 @@ INSERT INTO animals (common_name, species, image_src, situation_state, habitat, 
 
     ('Ratolí de bosc',
     'Apodemus sylvaticus',
-    'image_src4',
+    '/ratoli.png',
     "És un dels mamífers de més àmplia valència ecològica, malgrat que la densitat de l'espècimen variï segons el biòtop, depenent del grau de fluctuació de les condicions ambientals i de l'hostilitat pròpia del medi, que vindrà donada pel rigor de determinats paràmetres climàtics.",
     "Viu a tot arreu, però prefereix els marges i les clarianes dels boscos. Evita els prats i els espais oberts. Es pot detectar la seva presència degut a que deixa moltes pinyes rosegades i ben escurades a la base dels pins. ",
     '1,2');
