@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-// import { Route, Routes} from "react-router-dom"
+import { Route, Routes } from "react-router-dom";
 import gridLines from "./img/grid-lines2.png";
 import logo from "./img/logo.png";
 import SearchBar from "./components/SearchBar";
 import RegionsGrid from "./components/RegionsGrid";
 import AnimalCards from "./views/AnimalCards";
 import NotFound from "./views/NotFound";
+import AnimalsList from "./views/AnimalsList";
 
 function App() {
   let [animals, setAnimals] = useState([]);
+  let [animalIndex, setAnimalIndex] = useState(0);
   let [regions, setRegions] = useState([]);
   let [inputResult, setInputResult] = useState([]);
   let [input, setInput] = useState("");
@@ -44,6 +46,8 @@ function App() {
   };
 
   // show animal() --->
+
+  // goToAnimal(+1 or -1) if the button is the next or the previous in the animal card. and animals.length-1// animalIndex = 1 (search inside the animal [] for this animal)
 
   const searchAnimal = async (animalName) => {
     let animal = null;
@@ -110,6 +114,10 @@ function App() {
             O descobreix els que viuen aquí:
           </h3>
           <RegionsGrid appRegions={regions} />
+          <Routes>
+            <Route path="/AnimalsList" element={<AnimalsList />} />
+            <Route path="/Animals/:name" element={<AnimalCards />} />
+          </Routes>
         </div>
       )}
     </div>
