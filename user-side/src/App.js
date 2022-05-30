@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import gridLines from "./img/grid-lines2.png";
 import logo from "./img/logo.png";
 import SearchBar from "./components/SearchBar";
@@ -15,6 +15,7 @@ function App() {
   const [regions, setRegions] = useState([]);
   const [inputResult, setInputResult] = useState([]);
   const [input, setInput] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAnimals();
@@ -69,20 +70,23 @@ function App() {
     if (animal.length !== 0) {
       console.log(animal[0]);
       setInputResult(animal[0]);
+      navigate(`/animals/${animal[0].common_name}`); 
+
     } else {
       console.log("animal not found");
       setInputResult(notFound);
+      navigate("/NotFound"); 
     }
   };
 
   return (
     <div className="mb-20 relative">
-      {inputResult.length === 0 && (
+      {/* {inputResult.length === 0 && (
         <img
           src={gridLines}
           className="absolute mt-32 w-screen h-[800px]"
         ></img>
-      )}
+      )} */}
       <div>
         {/* search bar and logo  */}
         <div className="flex justify-between content-center mr-28">
@@ -118,7 +122,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeView />} />
         <Route path="/AnimalsList" element={<AnimalsList />} />
-        <Route path="/Animals/:name" element={<AnimalCards />} />
+        <Route path="/NotFound" element={<NotFound   inputResultFromApp={inputResult}
+            appRegions={regions}
+            searchAnimalCb={searchAnimal}/>} />
+        <Route path="/Animals/:name" element={<AnimalCards inputResultFromApp={inputResult}
+            animalsFromApp={animals}/>} />
       </Routes>
       {/* </div> */}
       {/* )} */}

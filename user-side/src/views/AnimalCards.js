@@ -1,7 +1,17 @@
 import React, { useState } from "react";
+import { Link, useParams } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import arrow from "../img/arrow-icon1.png";
+import NotFound from "./NotFound";
 
-function animalCards(props) {
+function AnimalCards(props) {
+
+    let { name } = useParams(); 
+    let animal = props.animalsFromApp.find(a => a.common_name === name);
+
+    if (!animal) {
+        return <NotFound />;
+    }
   return (
     <div>
       <div className="flex ml-8 mt-8">
@@ -50,8 +60,8 @@ function animalCards(props) {
           </div>
         </div>
       </div>
-      {/* <div className="flex justify-center"> */}
-        <button className="flex ml-16 gap-4 hover:-translate-x-6 mb-10">
+      
+        <NavLink to="/" className="flex ml-16 gap-4 hover:-translate-x-6 mb-10">
           <img
             src={arrow}
             className="h-10 mt-20 ml-16 bg-blend-color hover:animate-ping"
@@ -59,8 +69,8 @@ function animalCards(props) {
           <h1 className="text-white text-2xl mt-[84px] hover:text-[#c57e13]">
             Torna a l'inici
           </h1>
-        </button>
-      {/* </div> */}
+        </NavLink>
+
       {/* ----> all the animals
       
       
@@ -72,4 +82,4 @@ function animalCards(props) {
     </div>
   );
 }
-export default animalCards;
+export default AnimalCards;
