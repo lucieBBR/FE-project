@@ -49,7 +49,12 @@ function App() {
 
   // show animal() --->
 
-  const gotToAnimalCard = () =>{
+  const gotToAnimalCard = (direction) =>{
+   
+    // base on direction find the next index
+    // if the index is 0, go to the length-1
+    // update the index
+    // navegate /animal/common_name
 
   };
 
