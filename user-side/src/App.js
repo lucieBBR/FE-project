@@ -49,6 +49,10 @@ function App() {
 
   // show animal() --->
 
+  const gotToAnimalCard = () =>{
+
+  };
+
   // goToAnimal(+1 or -1) if the button is the next or the previous in the animal card. and animals.length-1// animalIndex = 1 (search inside the animal [] for this animal)
 
   const searchAnimal = async (animalName) => {
@@ -81,12 +85,7 @@ function App() {
 
   return (
     <div className="mb-20 relative">
-      {/* {inputResult.length === 0 && (
-        <img
-          src={gridLines}
-          className="absolute mt-32 w-screen h-[800px]"
-        ></img>
-      )} */}
+
       <div>
         {/* search bar and logo  */}
         <div className="flex justify-between content-center mr-28">
@@ -100,25 +99,6 @@ function App() {
         </div>
       </div>
 
-      {/* {inputResult.length !== 0 ? (
-        typeof inputResult !== "string" ? (
-          <AnimalCards
-            inputResultFromApp={inputResult}
-            animalsFromApp={animals}
-          />
-        ) : (
-          <NotFound
-            inputResultFromApp={inputResult}
-            appRegions={regions}
-            searchAnimalCb={searchAnimal}
-          />
-        ) 
-      ) : (
-        <div className="mx-10">
-          <h3 className="ml-16 font-bold text-3xl text-[#2F430D] bg-[#c57e13] w-[470px] mb-12">
-            O descobreix els que viuen aquí:
-          </h3>
-          <RegionsGrid appRegions={regions} /> */}
       <Routes>
         <Route path="/" element={<HomeView />} />
         <Route path="/AnimalsList" element={<AnimalsList />} />
@@ -126,10 +106,9 @@ function App() {
             appRegions={regions}
             searchAnimalCb={searchAnimal}/>} />
         <Route path="/Animals/:name" element={<AnimalCards inputResultFromApp={inputResult}
-            animalsFromApp={animals}/>} />
+            animalsFromApp={animals} gotToAnimalCardCb={gotToAnimalCard}/>} />
       </Routes>
-      {/* </div> */}
-      {/* )} */}
+
     </div>
   );
 }
