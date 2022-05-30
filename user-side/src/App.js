@@ -3,17 +3,18 @@ import { Route, Routes } from "react-router-dom";
 import gridLines from "./img/grid-lines2.png";
 import logo from "./img/logo.png";
 import SearchBar from "./components/SearchBar";
-import RegionsGrid from "./components/RegionsGrid";
+// import RegionsGrid from "./components/RegionsGrid";
 import AnimalCards from "./views/AnimalCards";
 import NotFound from "./views/NotFound";
 import AnimalsList from "./views/AnimalsList";
+import HomeView from "./views/HomeView";
 
 function App() {
-  let [animals, setAnimals] = useState([]);
-  let [animalIndex, setAnimalIndex] = useState(0);
-  let [regions, setRegions] = useState([]);
-  let [inputResult, setInputResult] = useState([]);
-  let [input, setInput] = useState("");
+  const [animals, setAnimals] = useState([]);
+  const [animalIndex, setAnimalIndex] = useState(0);
+  const [regions, setRegions] = useState([]);
+  const [inputResult, setInputResult] = useState([]);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     getAnimals();
@@ -95,7 +96,7 @@ function App() {
         </div>
       </div>
 
-      {inputResult.length !== 0 ? (
+      {/* {inputResult.length !== 0 ? (
         typeof inputResult !== "string" ? (
           <AnimalCards
             inputResultFromApp={inputResult}
@@ -107,19 +108,20 @@ function App() {
             appRegions={regions}
             searchAnimalCb={searchAnimal}
           />
-        ) /* grid*/
+        ) 
       ) : (
         <div className="mx-10">
           <h3 className="ml-16 font-bold text-3xl text-[#2F430D] bg-[#c57e13] w-[470px] mb-12">
             O descobreix els que viuen aquí:
           </h3>
-          <RegionsGrid appRegions={regions} />
-          <Routes>
-            <Route path="/AnimalsList" element={<AnimalsList />} />
-            <Route path="/Animals/:name" element={<AnimalCards />} />
-          </Routes>
-        </div>
-      )}
+          <RegionsGrid appRegions={regions} /> */}
+      <Routes>
+        <Route path="/" element={<HomeView />} />
+        <Route path="/AnimalsList" element={<AnimalsList />} />
+        <Route path="/Animals/:name" element={<AnimalCards />} />
+      </Routes>
+      {/* </div> */}
+      {/* )} */}
     </div>
   );
 }
