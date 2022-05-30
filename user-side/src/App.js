@@ -49,13 +49,37 @@ function App() {
 
   // show animal() --->
 
-  const gotToAnimalCard = (direction) =>{
-   
+  const gotToAnimalCard = (direction) => {
+    let currentAnimal = animals.find((a) => a.common_name);
+    
+
+  
+
+    if (direction === -1) {
+
+      currentAnimal.id = currentAnimal.id - 1;
+      setAnimalIndex(currentAnimal.id);
+
+      // if (animalIndex === 0) {
+      //   currentAnimal.id = animals.length-1
+      //   console.log(currentAnimal.id);
+      // }
+
+    }
+
+    if (direction === 1) {
+      currentAnimal.id = currentAnimal.id + 1;
+      setAnimalIndex(currentAnimal.id);
+    }
+    console.log(currentAnimal.id)
+    navigate(`/animals/common_name`);
+
+
+    // console.log(currentAnimal)
     // base on direction find the next index
     // if the index is 0, go to the length-1
     // update the index
     // navegate /animal/common_name
-
   };
 
   // goToAnimal(+1 or -1) if the button is the next or the previous in the animal card. and animals.length-1// animalIndex = 1 (search inside the animal [] for this animal)
@@ -79,18 +103,16 @@ function App() {
     if (animal.length !== 0) {
       console.log(animal[0]);
       setInputResult(animal[0]);
-      navigate(`/animals/${animal[0].common_name}`); 
-
+      navigate(`/animals/${animal[0].common_name}`);
     } else {
       console.log("animal not found");
       setInputResult(notFound);
-      navigate("/NotFound"); 
+      navigate("/NotFound");
     }
   };
 
   return (
     <div className="mb-20 relative">
-
       <div>
         {/* search bar and logo  */}
         <div className="flex justify-between content-center mr-28">
@@ -107,13 +129,28 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeView />} />
         <Route path="/AnimalsList" element={<AnimalsList />} />
-        <Route path="/NotFound" element={<NotFound   inputResultFromApp={inputResult}
-            appRegions={regions}
-            searchAnimalCb={searchAnimal}/>} />
-        <Route path="/Animals/:name" element={<AnimalCards inputResultFromApp={inputResult}
-            animalsFromApp={animals} gotToAnimalCardCb={gotToAnimalCard}/>} />
+        <Route
+          path="/NotFound"
+          element={
+            <NotFound
+              inputResultFromApp={inputResult}
+              appRegions={regions}
+              searchAnimalCb={searchAnimal}
+            />
+          }
+        />
+        <Route
+          path="/Animals/:name"
+          element={
+            <AnimalCards
+              inputResultFromApp={inputResult}
+              animalsFromApp={animals}
+              gotToAnimalCardCb={gotToAnimalCard}
+              animalIndexFromApp={animalIndex}
+            />
+          }
+        />
       </Routes>
-
     </div>
   );
 }
