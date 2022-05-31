@@ -10,7 +10,7 @@ The main **objective** of this project is to increase and complement the informa
 
 The app is divided in two parts: the **user** and the **admin** sides.
 
--`HOW THE USER SIDE LOOKS LIKE`
+- `HOW THE USER SIDE LOOKS LIKE`
 **missing** a view with the list of all the animals there are in each region.
 
 ![main view](./images/view_main_page.png)
@@ -21,12 +21,32 @@ The app is divided in two parts: the **user** and the **admin** sides.
 
 
 
--`HOW THE ADMIN SIDE LOOKS LIKE`
+- `HOW THE ADMIN SIDE LOOKS LIKE`
 **missing** a view with the logging for acces to the admin options.
 
 ![form_post](./images/view_form_post.png)
 ![form_update](./images/view_form_update.png)
 ![form_error](./images/view_form_error.png)
 
+- `FLOW DIAGRAM`
+![flow diagram](./images/flow%20diagrama.pdf)
+
+- `DATA BASE DESIGN`
+![data base](./images/DB%20design.png)
+
+### Done
+
+- Data Base.
+- Main view.
+- Animal Card.
+- Search view.
+
+
+### To do
+
+- Back end for the List view.
+- Api view and fetch.
+- Add the button for swtich between user and admin sides.
+- All the Admin side.
 
 
