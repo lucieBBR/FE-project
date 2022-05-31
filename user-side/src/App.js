@@ -11,11 +11,16 @@ import HomeView from "./views/HomeView";
 
 function App() {
   const [animals, setAnimals] = useState([]);
-  const [animalIndex, setAnimalIndex] = useState(0);
   const [regions, setRegions] = useState([]);
   const [inputResult, setInputResult] = useState([]);
-  const [input, setInput] = useState("");
+  const [currentAnimal, setCurrentAnimal] = useState(null);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    navigateTo();
+    console.log(currentAnimal);
+  }, [currentAnimal]);
 
   useEffect(() => {
     getAnimals();
@@ -47,42 +52,22 @@ function App() {
       });
   };
 
-  // show animal() --->
-
-  const gotToAnimalCard = (direction) => {
-    let currentAnimal = animals.find((a) => a.common_name);
-    
-
-  
-
-    if (direction === -1) {
-
-      currentAnimal.id = currentAnimal.id - 1;
-      setAnimalIndex(currentAnimal.id);
-
-      // if (animalIndex === 0) {
-      //   currentAnimal.id = animals.length-1
-      //   console.log(currentAnimal.id);
-      // }
-
+  const navigateTo = () => {
+    if (currentAnimal) {
+      setInputResult(currentAnimal);
+      navigate(`/animals/${currentAnimal.common_name}`);
     }
-
-    if (direction === 1) {
-      currentAnimal.id = currentAnimal.id + 1;
-      setAnimalIndex(currentAnimal.id);
-    }
-    console.log(currentAnimal.id)
-    navigate(`/animals/common_name`);
-
-
-    // console.log(currentAnimal)
-    // base on direction find the next index
-    // if the index is 0, go to the length-1
-    // update the index
-    // navegate /animal/common_name
   };
 
-  // goToAnimal(+1 or -1) if the button is the next or the previous in the animal card. and animals.length-1// animalIndex = 1 (search inside the animal [] for this animal)
+  const gotToAnimalCard = (direction) => {
+    if (currentAnimal.id === 1 && direction < 0) {
+      setCurrentAnimal(animals[animals.length - 1]);
+    } else if (currentAnimal.id === animals.length && direction > 0) {
+      setCurrentAnimal(animals[0]);
+    } else {
+      setCurrentAnimal(animals[currentAnimal.id - 1 + direction]);
+    }
+  };
 
   const searchAnimal = async (animalName) => {
     let animal = null;
@@ -92,22 +77,21 @@ function App() {
         let response = await fetch(`/animals?name=${animalName}`);
         if (response.ok) {
           animal = await response.json();
+          setCurrentAnimal(animal[0]);
+          if (animal.length !== 0) {
+            setInputResult(animal[0]);
+            navigate(`/animals/${animal[0].common_name}`);
+          } else {
+            console.log("animal not found");
+            setInputResult(notFound);
+            navigate("/NotFound");
+          }
         } else {
           console.log("Server error: ", response.status, response.statusText);
         }
       }
-      //show animal()
     } catch (error) {
       console.log("Network error: ", error.message);
-    }
-    if (animal.length !== 0) {
-      console.log(animal[0]);
-      setInputResult(animal[0]);
-      navigate(`/animals/${animal[0].common_name}`);
-    } else {
-      console.log("animal not found");
-      setInputResult(notFound);
-      navigate("/NotFound");
     }
   };
 
@@ -146,7 +130,6 @@ function App() {
               inputResultFromApp={inputResult}
               animalsFromApp={animals}
               gotToAnimalCardCb={gotToAnimalCard}
-              animalIndexFromApp={animalIndex}
             />
           }
         />

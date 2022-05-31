@@ -12,12 +12,10 @@ function AnimalCards(props) {
   if (!animal) {
     return <NotFound />;
   }
-// const changeImage = (id) => {
-
-// animal = props.animalIndexFromApp.find((a)=> a.id === id)
 
 
-// }
+
+
   return (
     <div>
       <div className="grid relative grid-cols-7 ml-8 mt-8">
