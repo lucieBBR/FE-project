@@ -22,7 +22,7 @@ function HomeView(props) {
       });
   };
   return (
-    <div className="relative">
+    <div className="relative mt-4">
 
       <img src={gridLines} className="absolute w-screen h-[800px]"></img>
       <div className="mx-10">

@@ -96,7 +96,7 @@ function App() {
 
   return (
     <div className="mb-20 relative">
-      <div>
+      <div className="-mt-5">
         {/* search bar and logo  */}
         <div className="flex justify-between content-center mr-28">
           <div className="flex flex-col">
