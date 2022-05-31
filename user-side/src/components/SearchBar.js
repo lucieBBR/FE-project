@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import lensIcon from "../img/magnifying-glass-icon.png";
-import element1 from "../img/element1.png";
+
 
 const EMPTY_FORM = {
   inputAnimal: "",

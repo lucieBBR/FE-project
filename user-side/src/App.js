@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import gridLines from "./img/grid-lines2.png";
+
 import logo from "./img/logo.png";
 import SearchBar from "./components/SearchBar";
-// import RegionsGrid from "./components/RegionsGrid";
 import AnimalCards from "./views/AnimalCards";
 import NotFound from "./views/NotFound";
 import AnimalsList from "./views/AnimalsList";
@@ -111,8 +110,8 @@ function App() {
       </div>
 
       <Routes>
-        <Route path="/" element={<HomeView />} />
-        <Route path="/AnimalsList" element={<AnimalsList />} />
+        <Route path="/" element={<HomeView regions={regions}/>} />
+        <Route path="/AnimalsList" element={<AnimalsList regions={regions} animalsFromApp={animals} />} />
         <Route
           path="/NotFound"
           element={

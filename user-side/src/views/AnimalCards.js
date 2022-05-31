@@ -92,14 +92,6 @@ function AnimalCards(props) {
         </h1>
       </NavLink>
 
-      {/* ----> all the animals
-      
-      
-      <ul>
-        {props.animalsFromApp.map((a) => (
-          <li key={a.id}> {a.common_name} </li>
-        ))}
-      </ul> */}
     </div>
   );
 }
