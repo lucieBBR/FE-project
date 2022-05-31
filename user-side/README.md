@@ -2,6 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## To install Tailwind
+
+- Firt of all: remember to do the install on the **user-side** , NOT IN THE SERVER.
+- If you use `Yarn`, replace `npm `per `yarn` in the following instructions:
+
+![1](./public/Tailwind%201.png)
+![2](./public/Tailwind%202.png)
+![3](./public/Tailwind%203.png)
+![4](./public/Tailwind%204.png)
+![5](./public/Tailwind%205.png)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
