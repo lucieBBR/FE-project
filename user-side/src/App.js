@@ -4,6 +4,8 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Local from './helpers/Local';
 import Api from './helpers/Api';
 
+import NavBar from './components/NavBar';
+
 import PrivateRoute from './components/PrivateRoute';
 import logo from "./img/logo.png";
 import SearchBar from "./components/SearchBar";
@@ -122,6 +124,8 @@ function doLogout() {
   return (
     <div className="mb-20 relative">
       <div className="-mt-5">
+        {/* navbar */}
+        <NavBar user={user} logoutCb={doLogout} />
         {/* search bar and logo  */}
         <div className="flex justify-between content-center mr-28">
           <div className="flex flex-col">
