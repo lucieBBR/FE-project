@@ -14,7 +14,7 @@ CREATE TABLE animals (
 	habitat TEXT(300) NOT NULL,
 	fk_related_animals varchar(255),	
 	PRIMARY KEY (id)
-    -- FOREIGN KEY (FK_related_animals) REFERENCES animals(id) ON DELETE CASCADE
+
     
 );
 

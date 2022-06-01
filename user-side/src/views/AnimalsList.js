@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import arrow from "../img/arrow-icon1.png";
 import { NavLink } from "react-router-dom";
 
+
+// the information that is showing this page is not the good one. I leave it like that for you to see how it should looks like, but you have to replace it for the information that is in the junction table. But first of all you need create the code for the backend part.
+
 function AnimalsList(props) {
   return (
     <div className="mt-8">

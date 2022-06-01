@@ -1,82 +1,101 @@
-# Getting Started with Create React App
+# Getting Started 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## To install Tailwind
-
-- Firt of all: remember to do the install on the **user-side** , NOT IN THE SERVER.
-- If you use `Yarn`, replace `npm `per `yarn` in the following instructions:
-
-![1](./public/Tailwind%201.png)
-![2](./public/Tailwind%202.png)
-![3](./public/Tailwind%203.png)
-![4](./public/Tailwind%204.png)
-![5](./public/Tailwind%205.png)
+## Install and run the dependencies
 
 
-## Available Scripts
+### `TERMINAL`
 
-In the project directory, you can run:
+- Run `npm` in **Animal-Cards** .
+- Type cd **user-side** and, again, run `npm`.
 
-### `npm start`
+*(if you work with yarn, type yarn instead npm).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Data Base
 
-### `npm test`
+### `TERMINAL`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Type `mysql -u root- p` for acces to MySQL.
+- Create a data base with the name : `AniamlCards`.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `PROYECT`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Add and env. file with this information inside:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=root
+DB_NAME=AnimalCards
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `TERMINAL`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `npm`run migrate.
+*(if you work with yarn, type yarn instead npm).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- The tables should look like this:
+![data base](./images/DB%20design.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Run start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `TERMINAL`
 
-### Code Splitting
+- Type`npm` run start in **Animal-Cards** .
+- Type cd **user-side** and, again, `npm` run start.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+*(if you work with yarn, type yarn instead npm).
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Server directory: http://localhost:5000/
+- Client directory: http://localhost:3000/
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+______________________________________________________________________________________________
 
-### Advanced Configuration
+# Briefing
+The main **objective** of this project is to increase and complement the information of the animals and regions that appears in the Desnaturalitzats documentaries.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The app is divided in two parts: the **user** and the **admin** sides.
 
-### Deployment
+- `HOW THE USER SIDE LOOKS LIKE`
+**missing** a view with the list of all the animals there are in each region.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![main view](./images/view_main_page.png)
+![not found view](./images/view_notFound.png)
+![animal card view](./images/view_animal_card.png)
+![Api view](./images/view_api_RedList.png)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+- `HOW THE ADMIN SIDE LOOKS LIKE`
+**missing** a view with the logging for acces to the admin options.
+
+![form_post](./images/view_form_post.png)
+![form_update](./images/view_form_update.png)
+![form_error](./images/view_form_error.png)
+
+- `FLOW DIAGRAM`
+![flow diagram](./images/flow%20diagrama.pdf)
+
+
+### Done
+
+- Data Base.
+- Main view.
+- Animal Card.
+- Search view.
+
+
+### To do
+
+- Back end for the List view.
+- The List View is not done (you have to change the information and work with the junction table).
+- Api view and fetch.
+- Add the button for swtich between user and admin sides.
+- All the Admin side.
+
+
