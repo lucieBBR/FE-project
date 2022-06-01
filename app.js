@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
  
 
-
+var authRouter = require('./routes/auth');
+var usersRouter = require('./routes/users');
 var indexRouter = require('./routes/index');
 var animalsRouter = require('./routes/animals');
 var regionsRouter = require('./routes/regions');
@@ -22,5 +23,7 @@ app.use(cors());  // add after 'app' is created
 app.use('/', indexRouter);
 app.use('/animals', animalsRouter);
 app.use('/regions', regionsRouter);
+app.use('/users', usersRouter);
+app.use('/', authRouter); 
 
 module.exports = app;

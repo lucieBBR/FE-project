@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
+import Local from './helpers/Local';
+import Api from './helpers/Api';
+
+import PrivateRoute from './components/PrivateRoute';
 import logo from "./img/logo.png";
 import SearchBar from "./components/SearchBar";
 import AnimalCards from "./views/AnimalCards";
 import NotFound from "./views/NotFound";
 import AnimalsList from "./views/AnimalsList";
 import HomeView from "./views/HomeView";
+import LoginView from './views/LoginView';
+import AdminView from './views/AdminView';
 
 function App() {
   const [animals, setAnimals] = useState([]);
   const [regions, setRegions] = useState([]);
   const [inputResult, setInputResult] = useState([]);
   const [currentAnimal, setCurrentAnimal] = useState(null);
-
+  const [user, setUser] = useState(Local.getUser());
+  const [loginErrorMsg, setLoginErrorMsg] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -94,6 +101,24 @@ function App() {
     }
   };
 
+  //LOGIN
+  async function doLogin(username, password) {
+    let myresponse = await Api.loginUser(username, password);
+    if (myresponse.ok) {
+        Local.saveUserInfo(myresponse.data.token, myresponse.data.user);
+        setUser(myresponse.data.user);
+        setLoginErrorMsg('');
+        navigate('/');
+    } else {
+        setLoginErrorMsg('Login failed');
+    }
+}
+
+function doLogout() {
+    Local.removeUserInfo();
+    setUser(null);
+}
+
   return (
     <div className="mb-20 relative">
       <div className="-mt-5">
@@ -132,6 +157,16 @@ function App() {
             />
           }
         />
+        <Route path="/admin/:userId" element={
+             <PrivateRoute>
+                <AdminView />
+             </PrivateRoute>
+            } />
+        <Route path="/login" element={
+              <LoginView 
+                loginCb={(u, p) => doLogin(u, p)} 
+                loginError={loginErrorMsg} 
+              /> } />
       </Routes>
     </div>
   );

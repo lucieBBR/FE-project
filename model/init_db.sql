@@ -33,8 +33,21 @@ CREATE TABLE animals_regions (
     FOREIGN KEY (fk_animals) REFERENCES animals(id) ON DELETE CASCADE,
     FOREIGN KEY (fk_regions) REFERENCES regions(id) ON DELETE CASCADE
 
-
 );
+
+--
+-- (Re)create table(s)
+--
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(30) NOT NULL UNIQUE,
+    password VARCHAR(200) NOT NULL,
+    email VARCHAR(200) NOT NULL,
+    role INT
+);
+
 
  
 INSERT INTO animals (common_name, species, image_src, situation_state, habitat, fk_related_animals)  
@@ -83,7 +96,13 @@ INSERT INTO animals_regions (fk_animals, fk_regions)
     (2, 1), 
     (2, 2), 
     (2, 3); 
-            
+
+
+-- Insert sample/seed data
+-- user1 has password pass1 (etc)
+INSERT INTO `users` (username, password, email)
+VALUES 
+    ('admin1','$2b$12$eFzMWbS9SogNtxkmo3J7aO8FQMFQSKbtpwLMIOVsF6GGKpTQdgq.W','admin1@acme.com');      
 
 
 
