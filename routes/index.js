@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
  * GET /admin
  **/
 
- router.get('/admin', ensureUserLoggedIn, function(req, res) {
+ router.get('/admin-only', ensureUserLoggedIn, function(req, res) {
   res.send({ message: 'Here is your Admin content from the server...' });
 });
 

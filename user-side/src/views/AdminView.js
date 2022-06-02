@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import Api from '../helpers/Api';
+import AddAnimalForm from '../components/AddAnimalForm';
 
 
 function AdminView(props) {
-    const [user, setUser] = useState(null);
+    const [memberMsg, setMemberMsg] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
-    let { userId } = useParams();
 
     useEffect(() => {
-        fetchProfile();
+        fetchMemberMsg();
     }, []);
 
-    async function fetchProfile() {
-        let myresponse = await Api.getUser(userId);
+    async function fetchMemberMsg() {
+        // Get "Members Only" message for authenticated users
+        let myresponse = await Api.getContent('/admin-only');
         if (myresponse.ok) {
-            setUser(myresponse.data);
+            setMemberMsg(myresponse.data.message);
             setErrorMsg('');
         } else {
-            setUser(null);
+            setMemberMsg('');
             let msg = `Error ${myresponse.status}: ${myresponse.error}`;
             setErrorMsg(msg);
         }
@@ -28,16 +28,15 @@ function AdminView(props) {
         return <h2 style={{ color: 'red' }}>{errorMsg}</h2>
     }
 
-    if (!user) {
+    if (!memberMsg) {
         return <h2>Loading...</h2>;
     }
 
     return (
-        <div className="ProfileView">
-            <h1>Profile View</h1>
-            ID: {user.id}<br />
-            Username: {user.username}<br />
-            Email: {user.email}
+        <div className="AdminView">
+            <h1>Admins Only</h1>
+            <p>{memberMsg}</p>
+            <AddAnimalForm addAnimalCb={props.addAnimalCb} />
         </div>
     );
 }

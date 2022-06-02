@@ -55,4 +55,24 @@ router.get("/", async (req, res) => {
     })
     .catch(err => res.status(500).send(err));
 });
+
+router.post("/", async (req, res) => {
+  let { image_src, common_name, species, situation_state, habitat } = req.body;
+  let sql = `INSERT INTO animals (image_src, common_name, species, situation_state, habitat)
+              VALUES ('${image_src}', '${common_name}', '${species}', '${situation_state}', '${habitat}')`;
+
+
+             
+
+  try {
+    await db(sql); // add new animal (do the insert)
+    let result = await db("SELECT * FROM animals");
+    let animals = result.data;
+    res.status(201).send(animals); // return updated array (with 201 for "new resource created")
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+});
+
+
 module.exports = router;

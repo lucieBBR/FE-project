@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 function NavBar(props) {
     return (
-        <nav className="Navbar navbar navbar-expand-sm navbar-dark mb-4" style={{ backgroundColor: 'teal' }}>
+        <nav className="Navbar navbar navbar-expand-sm navbar-dark mb-4" style={{ backgroundColor: 'white' }}>
             <div className="container-fluid">
                 <span className="navbar-brand font-weight-bold">AuthAuth</span>
 
@@ -18,17 +18,14 @@ function NavBar(props) {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/">Home</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/admin/:userId">Users</NavLink>
-                        </li>
                         {/* Only show "Members Only" if user is logged in */}
-                        {/* {
+                        {
                             props.user && (
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="/members-only">Members Only</NavLink>
+                                    <NavLink className="nav-link" to="/admin-only">Add content</NavLink>
                                 </li>
                             )
-                        } */}
+                        }
                     </ul>
                 </div>
 
@@ -38,9 +35,9 @@ function NavBar(props) {
                         ?   
                             (
                                 <ul className="navbar-nav">
-                                    <li className="nav-item">
-                                        <NavLink className="nav-link" to={`/users/${props.user.id}`}>Profile ({props.user.username})</NavLink>
-                                    </li>
+                                    {/* <li className="nav-item">
+                                        <NavLink className="nav-link" to={`/admin/${props.user.id}`}>Profile ({props.user.username})</NavLink>
+                                    </li> */}
                                     <li className="nav-item">
                                         {/* Log out user. Then go to home page. */}
                                         <NavLink className="nav-link" to="/" onClick={props.logoutCb}>Logout</NavLink>
@@ -51,7 +48,7 @@ function NavBar(props) {
                             (
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <NavLink className="nav-link" to="/login">Login</NavLink>
+                                        <NavLink className="nav-link" to="/admin-login">Login</NavLink>
                                     </li>
                                 </ul>
                             )
