@@ -67,7 +67,19 @@ function App() {
     }
   };
 
+  // const gotToAnimalCard = (direction) => {
+  //   console.log(animals)
+  //   if (currentAnimal.id === 1 && direction < 0) {
+  //     setCurrentAnimal(animals[animals.length - 1]);
+  //   } else if (currentAnimal.id === animals.length && direction > 0) {
+  //     setCurrentAnimal(animals[0]);
+  //   } else {
+  //     setCurrentAnimal(animals[currentAnimal.id - 1 + direction]);
+  //   }
+  // };
+
   const gotToAnimalCard = (direction) => {
+    console.log(animals)
     if (currentAnimal.id === 1 && direction < 0) {
       setCurrentAnimal(animals[animals.length - 1]);
     } else if (currentAnimal.id === animals.length && direction > 0) {
@@ -121,26 +133,62 @@ function doLogout() {
     setUser(null);
 }
 
-async function addAnimal(animal) {
+// useEffect(() => {
+//   getFiles();
+// }, []);
+
+// async function getFiles() {
+//   try {
+//       let response = await fetch('/files');
+//       if (response.ok) {
+//           let data = await response.json();
+//           setFiles(data);
+//       } else {
+//           console.log(`Server error: ${response.status}: ${response.statusText}`);
+//       }
+//   } catch (err) {
+//       console.log(`Network error: ${err.message}`);
+//   }
+// }
+
+async function addAnimal(formData) {
   let options = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(animal)
+      method: 'POST',
+      body: formData
   };
 
-  // Continue fetch request here
   try {
-    let response = await fetch("/animals", options);
-    if (response.ok) {
-      let data = await response.json();
-      setAnimals(data);
-    } else {
-      console.log(`Server error: ${response.status} ${response.statusText}`);
-    }
+      let response = await fetch('/animals', options);
+      if (response.ok) {
+          let data = await response.json();
+          setAnimals(data);
+      } else {
+          console.log(`Server error: ${response.status}: ${response.statusText}`);
+      }
   } catch (err) {
-    console.log(`Network error: ${err.message}`);
+      console.log(`Network error: ${err.message}`);
   }
 }
+// async function addAnimal(animal) {
+//   let options = {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(animal)
+//   };
+
+//   // Continue fetch request here
+//   try {
+//     let response = await fetch("/animals", options);
+//     if (response.ok) {
+//       let data = await response.json();
+//       setAnimals(data);
+//     } else {
+//       console.log(`Server error: ${response.status} ${response.statusText}`);
+//     }
+//   } catch (err) {
+//     console.log(`Network error: ${err.message}`);
+//   }
+// }
 
   return (
     <div className="mb-20 relative">
@@ -184,7 +232,7 @@ async function addAnimal(animal) {
         />
         <Route path="/admin-only" element={
              <PrivateRoute>
-                <AdminView addAnimalCb={addAnimal} />
+                <AdminView addAnimalCb={fd => addAnimal(fd)}/>
              </PrivateRoute>
             } />
         <Route path="/admin-login" element={

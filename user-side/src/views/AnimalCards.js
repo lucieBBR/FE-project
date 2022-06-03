@@ -5,9 +5,18 @@ import arrow from "../img/arrow-icon1.png";
 import arrow2 from "../img/arrow-icon2.png";
 import NotFound from "./NotFound";
 
+
+// Here's the server where our files are stored
+const SERVER_URL = 'http://localhost:5000';
+
 function AnimalCards(props) {
   let { name } = useParams();
   let animal = props.animalsFromApp.find((a) => a.common_name === name);
+  
+  // Make a link to the file; notice that we don't include /public in the URL
+  function animalImage(fn) {
+  return <img key = {props.animalsFromApp.id} src={`${SERVER_URL}/animalsimages/${fn}`} />
+  }
 
   if (!animal) {
     return <NotFound />;
@@ -17,7 +26,7 @@ function AnimalCards(props) {
     <div>
       <div className="grid grid-cols-7 ml-8 mt-4">
         <div className="col-span-4">
-          <img src={props.inputResultFromApp.image_src} />
+          {animalImage(props.inputResultFromApp.image_src)}
           <div className="flex -mt-4 mx-32 justify-between">
             <button onClick={(e) => props.gotToAnimalCardCb(-1)}>
               <img

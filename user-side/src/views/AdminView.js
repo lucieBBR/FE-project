@@ -36,7 +36,7 @@ function AdminView(props) {
         <div className="AdminView">
             <h1>Admins Only</h1>
             <p>{memberMsg}</p>
-            <AddAnimalForm addAnimalCb={props.addAnimalCb} />
+            <AddAnimalForm addAnimalCb={fd => props.addAnimalCb(fd)} />
         </div>
     );
 }
