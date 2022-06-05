@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, Link, useNavigate } from "react-router-dom";
 
 import Local from './helpers/Local';
 import Api from './helpers/Api';
@@ -194,7 +194,9 @@ async function addAnimal(formData) {
             </h3>
             <SearchBar searchAnimalCb={searchAnimal} />
           </div>
-          <img src={logo} className="h-[200px]"></img>
+          <Link to="/">
+            <img src={logo} className="h-[200px]"></img>
+          </Link>
         </div>
       </div>
 
