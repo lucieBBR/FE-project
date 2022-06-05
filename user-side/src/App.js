@@ -67,16 +67,7 @@ function App() {
     }
   };
 
-  // const gotToAnimalCard = (direction) => {
-  //   console.log(animals)
-  //   if (currentAnimal.id === 1 && direction < 0) {
-  //     setCurrentAnimal(animals[animals.length - 1]);
-  //   } else if (currentAnimal.id === animals.length && direction > 0) {
-  //     setCurrentAnimal(animals[0]);
-  //   } else {
-  //     setCurrentAnimal(animals[currentAnimal.id - 1 + direction]);
-  //   }
-  // };
+  
 
   const gotToAnimalCard = (direction) => {
     console.log(animals)
@@ -221,7 +212,7 @@ async function addAnimal(formData) {
           }
         />
         <Route
-          path="/Animals/:name"
+          path="/animals/:name"
           element={
             <AnimalCards
               inputResultFromApp={inputResult}

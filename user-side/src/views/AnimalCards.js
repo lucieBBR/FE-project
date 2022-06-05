@@ -15,7 +15,7 @@ function AnimalCards(props) {
   
   // Make a link to the file; notice that we don't include /public in the URL
   function animalImage(fn) {
-  return <img key = {props.animalsFromApp.id} src={`${SERVER_URL}/animalsimages/${fn}`} />
+  return <img src={`${SERVER_URL}/animalsimages/${fn}`} />
   }
 
   if (!animal) {
