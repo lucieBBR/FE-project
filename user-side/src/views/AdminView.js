@@ -13,7 +13,7 @@ function AdminView(props) {
 
     async function fetchMemberMsg() {
         // Get "Members Only" message for authenticated users
-        let myresponse = await Api.getContent('/admin-only');
+        let myresponse = await Api.getContent('/add-content');
         if (myresponse.ok) {
             setMemberMsg(myresponse.data.message);
             setErrorMsg('');
@@ -34,8 +34,6 @@ function AdminView(props) {
 
     return (
         <div className="AdminView">
-            <h1>Admins Only</h1>
-            <p>{memberMsg}</p>
             <AddAnimalForm addAnimalCb={fd => props.addAnimalCb(fd)} />
         </div>
     );

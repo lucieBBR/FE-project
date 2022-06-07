@@ -22,7 +22,7 @@ function NavBar(props) {
                         {
                             props.user && (
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="/admin-only">Add content</NavLink>
+                                    <NavLink className="nav-link" to="/add-content">Add content</NavLink>
                                 </li>
                             )
                         }

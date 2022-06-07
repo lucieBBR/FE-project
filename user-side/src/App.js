@@ -124,24 +124,6 @@ function doLogout() {
     setUser(null);
 }
 
-// useEffect(() => {
-//   getFiles();
-// }, []);
-
-// async function getFiles() {
-//   try {
-//       let response = await fetch('/files');
-//       if (response.ok) {
-//           let data = await response.json();
-//           setFiles(data);
-//       } else {
-//           console.log(`Server error: ${response.status}: ${response.statusText}`);
-//       }
-//   } catch (err) {
-//       console.log(`Network error: ${err.message}`);
-//   }
-// }
-
 async function addAnimal(formData) {
   let options = {
       method: 'POST',
@@ -160,26 +142,6 @@ async function addAnimal(formData) {
       console.log(`Network error: ${err.message}`);
   }
 }
-// async function addAnimal(animal) {
-//   let options = {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify(animal)
-//   };
-
-//   // Continue fetch request here
-//   try {
-//     let response = await fetch("/animals", options);
-//     if (response.ok) {
-//       let data = await response.json();
-//       setAnimals(data);
-//     } else {
-//       console.log(`Server error: ${response.status} ${response.statusText}`);
-//     }
-//   } catch (err) {
-//     console.log(`Network error: ${err.message}`);
-//   }
-// }
 
   return (
     <div className="mb-20 relative">
@@ -223,7 +185,7 @@ async function addAnimal(formData) {
             />
           }
         />
-        <Route path="/admin-only" element={
+        <Route path="/add-content" element={
              <PrivateRoute>
                 <AdminView addAnimalCb={fd => addAnimal(fd)}/>
              </PrivateRoute>

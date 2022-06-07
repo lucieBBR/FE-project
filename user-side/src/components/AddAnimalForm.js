@@ -48,55 +48,70 @@ function AddAnimalForm(props) {
 
 
   return (
-    <form className="AddAnimalForm" onSubmit={handleSubmit} style={{backgroundColor: "grey"}}>
-      <h4>AFEGEIX UN NOU ANIMAL</h4>
+    // <div className="flex justify-center items-center flex-wrap p-40 g-6 text-gray-800">
+    // <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
+  <div class="flex justify-center items-center flex-wrap mx-auto mb-6 bg-[#FFFFFF] bg-opacity-60">
+   <form className="p-10 w-full max-w-lg grid grid-cols-1" onSubmit={handleSubmit}>
+     <div class="">
+      <h4 className="block uppercase text-center tracking-wide text-black text-2xl font-bold mb-2 pb-5">AFEGEIX UN NOU ANIMAL</h4>
 
-      <label>
+      <label className="block uppercase text-center tracking-wide text-black text-m font-bold mb-2">
         Image
         <input
+          className="appearance-none w-full block w-full bg-gray-200 text-gray-700 border-2 border-[#4C473F]  rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white bg-[#FFFFFF] bg-opacity-60 "
           type="file"
           onChange={handleFileChange}
           required/>
       </label>
 
-      <label>
-        Nom comú
-        <input
-          type="text"
-          name="common_name"
-          value={input.common_name}
-          onChange={handleChange}/>
-      </label>
+      <div className="grid grid-cols-2 gap-4">
+        <label className="block uppercase text-center tracking-wide text-black text-m font-bold mb-2">
+          Nom comú
+          <input
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border-2 border-[#4C473F] rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white bg-[#FFFFFF] bg-opacity-60"
+            type="text"
+            name="common_name"
+            value={input.common_name}
+            onChange={handleChange}/>
+        </label>
 
-      <label>
-        Espècie
-        <input
-          type="text"
-          name="species"
-          value={input.species}
-          onChange={handleChange}/>
-      </label>
+        <label className="block uppercase text-center tracking-wide text-black text-m font-bold mb-2">
+          Espècie
+          <input
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border-2 border-[#4C473F] rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white bg-[#FFFFFF] bg-opacity-60"
+            type="text"
+            name="species"
+            value={input.species}
+            onChange={handleChange}/>
+        </label>
+      </div>
 
-      <label>
+      <label className="block uppercase text-center tracking-wide text-black text-m font-bold mb-2">
         Població
         <textarea
+          className="appearance-none block w-full bg-gray-200 text-gray-700 border-2 border-[#4C473F] rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white bg-[#FFFFFF] bg-opacity-60"
           name="situation_state"
           value={input.situation_state}
           onChange={handleChange}>
         </textarea>
       </label>
 
-      <label>
+      <label className="block uppercase text-center tracking-wide text-black text-m font-bold mb-2">
         Hàbitat
         <textarea
+          className="appearance-none block w-full bg-gray-200 text-gray-700 border-2 border-[#4C473F] rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white bg-[#FFFFFF] bg-opacity-60"
           name="habitat"
           value={input.habitat}
           onChange={handleChange}>
         </textarea>
       </label>
-      
-      <button type="submit">Envia</button>
-    </form>
+      {" "}
+      <div className="flex justify-center items-center">
+        <button className="mt-4 p-4 bg-[#E28E10] rounded-lg text-lg" type="submit">Envia</button>
+      </div>
+   </div>
+ </form>
+ </div>
   );
 }
 
