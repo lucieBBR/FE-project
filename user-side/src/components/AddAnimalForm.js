@@ -40,6 +40,9 @@ function AddAnimalForm(props) {
     // Call parent's callback
     props.addAnimalCb(formData);
 
+    //display confirmation
+    alert("Animal succesfully uploaded!")
+
     // Reset everything
     setInput(INIT_STATE);
     setFile(null);  // remove filename of previous file
@@ -107,7 +110,7 @@ function AddAnimalForm(props) {
       </label>
       {" "}
       <div className="flex justify-center items-center">
-        <button className="mt-4 p-4 bg-[#E28E10] rounded-lg text-lg" type="submit">Envia</button>
+        <button className="mt-4 p-4 px-6 bg-[#E28E10] rounded-lg text-lg" type="submit">Envia</button>
       </div>
    </div>
  </form>

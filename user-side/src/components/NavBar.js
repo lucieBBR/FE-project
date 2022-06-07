@@ -4,56 +4,25 @@ import { NavLink } from 'react-router-dom';
 
 function NavBar(props) {
     return (
-        <nav className="Navbar navbar navbar-expand-sm navbar-dark mb-4" style={{ backgroundColor: 'white' }}>
-            <div className="container-fluid">
-                <span className="navbar-brand font-weight-bold">AuthAuth</span>
-
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-
-                {/* Left-aligned stuff */}
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
+        
+        <nav className="flex lg:flex-grow items-center justify-end mt-5 p-3 bg-[#c57e13] bg-opacity-50 w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+            {/* <div className=""> */}
+                    <ul className="flex justify-end">
+                        <li className="block mt-4 lg:inline-block lg:mt-0 text-white text-lg hover:text-xl hover:font-bold mr-4">
                             <NavLink className="nav-link" to="/">Home</NavLink>
                         </li>
-                        {/* Only show "Members Only" if user is logged in */}
-                        {
-                            props.user && (
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="/add-content">Add content</NavLink>
-                                </li>
-                            )
-                        }
+                        
+                        <li className="block mt-4 lg:inline-block lg:mt-0 text-white text-lg hover:text-xl hover:font-bold mr-4">
+                            <NavLink className="nav-link" to="/add-content">Add content</NavLink>
+                        </li>
+                        
+                        <li className="block mt-4 lg:inline-block lg:mt-0 text-white text-lg hover:text-xl hover:font-bold mr-4">
+                            {/* Log out user. Then go to home page. */}
+                            <NavLink className="nav-link" to="/" onClick={props.logoutCb}>Logout</NavLink>
+                        </li>
                     </ul>
-                </div>
-
-                {/* Right-aligned stuff, based on whether user is logged in */}
-                {
-                    props.user
-                        ?   
-                            (
-                                <ul className="navbar-nav">
-                                    {/* <li className="nav-item">
-                                        <NavLink className="nav-link" to={`/admin/${props.user.id}`}>Profile ({props.user.username})</NavLink>
-                                    </li> */}
-                                    <li className="nav-item">
-                                        {/* Log out user. Then go to home page. */}
-                                        <NavLink className="nav-link" to="/" onClick={props.logoutCb}>Logout</NavLink>
-                                    </li>
-                                </ul>
-                            )
-                        :
-                            (
-                                <ul className="navbar-nav">
-                                    <li className="nav-item">
-                                        <NavLink className="nav-link" to="/admin-login">Login</NavLink>
-                                    </li>
-                                </ul>
-                            )
-                }
-            </div>
+                {/* </div> */}                
+            
         </nav>
     );
 }
