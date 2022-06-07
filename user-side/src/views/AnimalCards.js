@@ -15,7 +15,7 @@ function AnimalCards(props) {
   
   // Make a link to the file; notice that we don't include /public in the URL
   function animalImage(fn) {
-  return <img src={`${SERVER_URL}/animalsimages/${fn}`} />
+  return <img src={`${SERVER_URL}/animalsimages/${fn}`} className=""/>
   }
 
   if (!animal) {
@@ -26,7 +26,9 @@ function AnimalCards(props) {
     <div>
       <div className="grid grid-cols-7 ml-8 mt-4">
         <div className="col-span-4">
-          {animalImage(props.inputResultFromApp.image_src)}
+          {/* <div className="w-full h-full"> */}
+            {animalImage(props.inputResultFromApp.image_src)}
+          {/* </div> */}
           <div className="flex -mt-4 mx-32 justify-between">
             <button onClick={(e) => props.gotToAnimalCardCb(-1)}>
               <img

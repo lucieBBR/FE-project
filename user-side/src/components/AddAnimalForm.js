@@ -51,8 +51,6 @@ function AddAnimalForm(props) {
 
 
   return (
-    // <div className="flex justify-center items-center flex-wrap p-40 g-6 text-gray-800">
-    // <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
   <div class="flex justify-center items-center flex-wrap mx-auto mb-6 bg-[#FFFFFF] bg-opacity-60">
    <form className="p-10 w-full max-w-lg grid grid-cols-1" onSubmit={handleSubmit}>
      <div class="">
