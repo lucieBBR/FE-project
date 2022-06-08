@@ -86,5 +86,16 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  let animalId = req.params.id;
 
+  try {
+      await db(`DELETE FROM animals WHERE id = ${animalId}`);  // delete animal
+      result = await db('SELECT * FROM animals');
+      let animals = result.data;
+      res.send(animals);
+      } catch (err) {
+      res.status(500).send({ error: err.message });
+  }
+});
 module.exports = router;

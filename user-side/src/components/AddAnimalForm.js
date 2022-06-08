@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const INIT_STATE = {
-  // image_src: "",
   common_name: "",
   species: "",
   situation_state: "",
@@ -40,9 +39,6 @@ function AddAnimalForm(props) {
     // Call parent's callback
     props.addAnimalCb(formData);
 
-    //display confirmation
-    alert("Animal succesfully uploaded!")
-
     // Reset everything
     setInput(INIT_STATE);
     setFile(null);  // remove filename of previous file
@@ -51,15 +47,14 @@ function AddAnimalForm(props) {
 
 
   return (
-  <div class="flex justify-center items-center flex-wrap mx-auto mb-6 bg-[#FFFFFF] bg-opacity-60">
+  <div className="flex justify-center items-center flex-wrap mx-auto mb-6 bg-[#FFFFFF] bg-opacity-60">
    <form className="p-10 w-full max-w-lg grid grid-cols-1" onSubmit={handleSubmit}>
-     <div class="">
       <h4 className="block uppercase text-center tracking-wide text-black text-2xl font-bold mb-2 pb-5">AFEGEIX UN NOU ANIMAL</h4>
 
       <label className="block uppercase text-center tracking-wide text-black text-m font-bold mb-2">
         Image
         <input
-          className="appearance-none w-full block w-full bg-gray-200 text-gray-700 border-2 border-[#4C473F]  rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white bg-[#FFFFFF] bg-opacity-60 "
+          className="appearance-none w-full block w-full bg-gray-200 text-gray-700 border-2 border-[#4C473F]  rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white bg-[#FFFFFF] bg-opacity-60"
           type="file"
           onChange={handleFileChange}
           required/>
@@ -106,12 +101,39 @@ function AddAnimalForm(props) {
           onChange={handleChange}>
         </textarea>
       </label>
+
+      <label className="block uppercase text-center tracking-wide text-black text-m font-bold mb-2" 
+             for="region"
+             >
+             Regió
+      </label>
+      <select id="region" name="region" className="appearance-none w-full block w-full bg-gray-200 text-gray-700 border-2 border-[#4C473F]  rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white bg-[#FFFFFF] bg-opacity-60">
+        <option value="" disabled selected hidden>Choose a region</option>
+        {props.regions.map((r) => (
+        <option value="region_name" key={r.id}>{r.region_name}</option>
+        ))}
+      </select>
+
+      <label className="block uppercase text-center tracking-wide text-black text-m font-bold mb-2" 
+             for="region"
+             >
+             Animals Relacionats
+            <p className="text-xs text-grey font-light">*hold CTRL/CMD key to select multiple animals</p>
+      </label>
+      
+      <select id="animal" name="animal" multiple className="appearance-none w-full block w-full h-20 bg-gray-200 text-gray-700 border-2 border-[#4C473F]  rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white bg-[#FFFFFF] bg-opacity-60">
+        {props.animals.map((a) => (
+        <option value="animal">{a.common_name}</option>
+        ))}
+      </select>
+      
+
       {" "}
+
       <div className="flex justify-center items-center">
         <button className="mt-4 p-4 px-6 bg-[#E28E10] rounded-lg text-lg" type="submit">Envia</button>
       </div>
-   </div>
- </form>
+   </form>
  </div>
   );
 }

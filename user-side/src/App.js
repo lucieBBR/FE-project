@@ -15,6 +15,7 @@ import AnimalsList from "./views/AnimalsList";
 import HomeView from "./views/HomeView";
 import LoginView from './views/LoginView';
 import AdminView from './views/AdminView';
+import AnimalDeleted from "./views/AnimalDeleted";
 
 function App() {
   const [animals, setAnimals] = useState([]);
@@ -27,7 +28,7 @@ function App() {
 
   useEffect(() => {
     navigateTo();
-    console.log(currentAnimal);
+    console.log("useEffect", currentAnimal);
   }, [currentAnimal]);
 
   useEffect(() => {
@@ -71,6 +72,7 @@ function App() {
 
   const gotToAnimalCard = (direction) => {
     console.log(animals)
+    console.log(currentAnimal)
     if (currentAnimal.id === 1 && direction < 0) {
       setCurrentAnimal(animals[animals.length - 1]);
     } else if (currentAnimal.id === animals.length && direction > 0) {
@@ -124,6 +126,7 @@ function doLogout() {
     setUser(null);
 }
 
+// POST for admin to add new animals
 async function addAnimal(formData) {
   let options = {
       method: 'POST',
@@ -135,6 +138,28 @@ async function addAnimal(formData) {
       if (response.ok) {
           let data = await response.json();
           setAnimals(data);
+          alert("Animal succesfully uploaded!")
+      } else {
+          console.log(`Server error: ${response.status}: ${response.statusText}`);
+      }
+  } catch (err) {
+      console.log(`Network error: ${err.message}`);
+  }
+}
+
+// DELETE method for admin to delete animals
+async function deleteAnimal(id) {
+  let options = {
+      method: 'DELETE'
+  };
+
+  try {
+      let response = await fetch(`/animals/${id}`, options);
+      if (response.ok) {
+          let data = await response.json();
+          setAnimals(data);
+          navigate('/animal-deleted');
+          //window.alert("Animal deleted!");
       } else {
           console.log(`Server error: ${response.status}: ${response.statusText}`);
       }
@@ -182,14 +207,20 @@ async function addAnimal(formData) {
               inputResultFromApp={inputResult}
               animalsFromApp={animals}
               gotToAnimalCardCb={gotToAnimalCard}
+              deleteAnimalCb={deleteAnimal}
+              user={user}
             />
           }
         />
         <Route path="/add-content" element={
              <PrivateRoute>
-                <AdminView addAnimalCb={fd => addAnimal(fd)}/>
+                <AdminView addAnimalCb={fd => addAnimal(fd)} regions={regions} animalsFromApp={animals}/>
              </PrivateRoute>
             } />
+        <Route path="/animal-deleted" element={
+              <PrivateRoute>
+              <AnimalDeleted />
+              </PrivateRoute> } />
         <Route path="/admin-login" element={
               <LoginView 
                 loginCb={(u, p) => doLogin(u, p)} 

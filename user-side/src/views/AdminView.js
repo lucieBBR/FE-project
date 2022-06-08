@@ -34,7 +34,7 @@ function AdminView(props) {
 
     return (
         <div className="AdminView">
-            <AddAnimalForm addAnimalCb={fd => props.addAnimalCb(fd)} />
+            <AddAnimalForm addAnimalCb={fd => props.addAnimalCb(fd)} regions={props.regions} animals={props.animalsFromApp}/>
         </div>
     );
 }
