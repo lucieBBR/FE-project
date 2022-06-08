@@ -15,8 +15,9 @@ function AnimalCards(props) {
   
   // Make a link to the file; notice that we don't include /public in the URL
   function animalImage(fn) {
-  return <img src={`${SERVER_URL}/animalsimages/${fn}`} className="object-contain w-[1026px] h-[697px]"/>
+  return <img src={`${SERVER_URL}/animalsimages/${fn}`} className="object-cover w-full max-h-full p-14"/>
   }
+  // w-[1026px] h-[697px]
 
   if (!animal) {
     return <NotFound />;
@@ -24,7 +25,7 @@ function AnimalCards(props) {
 
   return (
     <div>
-      <div className="grid grid-cols-7 ml-8 mt-4">
+      <div className="grid grid-cols-7 ml-8 mt-4 gap-x-10">
         <div className="col-span-4">
           {props.user && <div className="">
             <button onClick={(e) => props.deleteAnimalCb(props.inputResultFromApp.id)} className="ml-12 bg-[#F90101] px-10 rounded-lg text-white font-bold py-1 text-lg pb-0.5 hover:opacity-50 hover:shadow-2xl hover:shadow-white/50">
@@ -34,7 +35,7 @@ function AnimalCards(props) {
               ACTUALITZAR
             </button> */}
           </div>}
-          <div className="bg">
+          <div className="w-full h-[600px]">
             {animalImage(props.inputResultFromApp.image_src)}
           </div>
           <div className="flex -mt-4 mx-32 justify-between">
