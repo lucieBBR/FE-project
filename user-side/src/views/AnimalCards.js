@@ -6,18 +6,18 @@ import arrow2 from "../img/arrow-icon2.png";
 import NotFound from "./NotFound";
 
 
-// Here's the server where our files are stored
+// Server where our files are stored
 const SERVER_URL = 'http://localhost:5000';
 
 function AnimalCards(props) {
   let { name } = useParams();
   let animal = props.animalsFromApp.find((a) => a.common_name === name);
   
-  // Make a link to the file; notice that we don't include /public in the URL
+  // Link to the file;
   function animalImage(fn) {
   return <img src={`${SERVER_URL}/animalsimages/${fn}`} className="object-cover w-full max-h-full p-14"/>
   }
-  // w-[1026px] h-[697px]
+  
 
   if (!animal) {
     return <NotFound />;

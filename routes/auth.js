@@ -10,21 +10,21 @@ const db = require("../model/helper");
  * Register a user - ?do not need for now because we will only have admin
  **/
 
-router.post('/register', async (req, res) => {
-    let { username, password, email } = req.body;
-    let hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
+// router.post('/register', async (req, res) => {
+//     let { username, password, email } = req.body;
+//     let hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
 
-    try {
-        let sql = `
-            INSERT INTO users (username, password, email)
-            VALUES ('${username}', '${hashedPassword}', '${email}')
-        `;
-        await db(sql);
-        res.send({ message: 'Registration succeeded' });
-    } catch (err) {
-        res.status(500).send({ error: err.message });
-    }
-});
+//     try {
+//         let sql = `
+//             INSERT INTO users (username, password, email)
+//             VALUES ('${username}', '${hashedPassword}', '${email}')
+//         `;
+//         await db(sql);
+//         res.send({ message: 'Registration succeeded' });
+//     } catch (err) {
+//         res.status(500).send({ error: err.message });
+//     }
+// });
 
 
 /**

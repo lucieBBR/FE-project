@@ -5,7 +5,6 @@ const INIT_STATE = {
   species: "",
   situation_state: "",
   habitat: "",
-// fk_related_animals: "",
 //   region: "",
 };
 
@@ -114,7 +113,7 @@ function AddAnimalForm(props) {
         ))}
       </select>
 
-      <label className="block uppercase text-center tracking-wide text-black text-m font-bold mb-2" 
+      {/* <label className="block uppercase text-center tracking-wide text-black text-m font-bold mb-2" 
              for="region"
              >
              Animals Relacionats
@@ -125,7 +124,7 @@ function AddAnimalForm(props) {
         {props.animals.map((a) => (
         <option value="animal">{a.common_name}</option>
         ))}
-      </select>
+      </select> */}
       
 
       {" "}

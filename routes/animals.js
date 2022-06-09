@@ -4,18 +4,6 @@ const path = require('path');
 const db = require("../model/helper");
 const fs = require('fs/promises');
 
-/* GET users listing. */
-
-// router.get("/", (req, res) => {
-//   // Send back the full list of items
-//   db("SELECT * FROM animals ORDER BY id ASC;")
-//     .then(results => {
-//       res.send(results.data);
-//     })
-//     .catch(err => res.status(500).send(err));
-// });
-
-
 /* Helper function which allows you to get the query filter which you can later append to your 
   SELECT * FROM animals WHERE... statement
 */

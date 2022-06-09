@@ -3,9 +3,7 @@ import { Route, Routes, Link, useNavigate } from "react-router-dom";
 
 import Local from './helpers/Local';
 import Api from './helpers/Api';
-
 import NavBar from './components/NavBar';
-
 import PrivateRoute from './components/PrivateRoute';
 import logo from "./img/logo.png";
 import SearchBar from "./components/SearchBar";
@@ -159,7 +157,6 @@ async function deleteAnimal(id) {
           let data = await response.json();
           setAnimals(data);
           navigate('/animal-deleted');
-          //window.alert("Animal deleted!");
       } else {
           console.log(`Server error: ${response.status}: ${response.statusText}`);
       }
@@ -171,7 +168,7 @@ async function deleteAnimal(id) {
   return (
     <div className="mb-20 relative">
       <div className="-mt-5">
-        {/* navbar */}
+        {/* navbar showed if admin logged in */}
         {user && <NavBar user={user} logoutCb={doLogout} />} 
         {/* search bar and logo  */}
         <div className="flex justify-between content-center mr-28">
