@@ -99,7 +99,6 @@ INSERT INTO animals_regions (fk_animals, fk_regions)
 
 
 -- Insert sample/seed data
--- user1 has password pass1 (etc)
 INSERT INTO `users` (username, password, email)
 VALUES 
     ('admin1','$2b$12$eFzMWbS9SogNtxkmo3J7aO8FQMFQSKbtpwLMIOVsF6GGKpTQdgq.W','admin1@acme.com');      

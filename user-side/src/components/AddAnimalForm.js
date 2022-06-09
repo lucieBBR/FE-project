@@ -112,19 +112,6 @@ function AddAnimalForm(props) {
         <option value="region_name" key={r.id}>{r.region_name}</option>
         ))}
       </select>
-
-      {/* <label className="block uppercase text-center tracking-wide text-black text-m font-bold mb-2" 
-             for="region"
-             >
-             Animals Relacionats
-            <p className="text-xs text-grey font-light">*hold CTRL/CMD key to select multiple animals</p>
-      </label>
-      
-      <select id="animal" name="animal" multiple className="appearance-none w-full block w-full h-20 bg-gray-200 text-gray-700 border-2 border-[#4C473F]  rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white bg-[#FFFFFF] bg-opacity-60">
-        {props.animals.map((a) => (
-        <option value="animal">{a.common_name}</option>
-        ))}
-      </select> */}
       
 
       {" "}

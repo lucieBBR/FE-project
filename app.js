@@ -13,7 +13,7 @@ var usersRouter = require('./routes/users');
 var indexRouter = require('./routes/index');
 var animalsRouter = require('./routes/animals');
 var regionsRouter = require('./routes/regions');
-// var filesRouter = require('./routes/files');  // import/require the routes for files
+
 
 var app = express();
 
@@ -37,7 +37,7 @@ app.use(
 app.use( express.static('public') );
 
 app.use('/', indexRouter);
-// app.use('/files', filesRouter);
+
 
 app.use('/animals', animalsRouter);
 app.use('/regions', regionsRouter);

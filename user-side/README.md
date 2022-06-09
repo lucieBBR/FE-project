@@ -15,7 +15,7 @@
 
 ### `TERMINAL`
 
-- Type `mysql -u root- p` for acces to MySQL.
+- Type `mysql -u root -p` for acces to MySQL.
 - Create a data base with the name : `AniamlCards`.
 
 
@@ -72,15 +72,13 @@ The app is divided in two parts: the **user** and the **admin** sides.
 
 
 - `HOW THE ADMIN SIDE LOOKS LIKE`
-**missing** a view with the logging for acces to the admin options.
-
 ![form_post](../public/images/view_form_post.png)
+**missing**
 ![form_update](../public/images/view_form_update.png)
 ![form_error](../public/images/view_form_error.png)
 
 - `FLOW DIAGRAM`
 ![flow diagram](../public/images/flow%20diagrama.pdf)
-
 
 ### Done
 
@@ -89,13 +87,25 @@ The app is divided in two parts: the **user** and the **admin** sides.
 - Animal Card.
 - Search view.
 
+### Feature extension project - Done
+
+- Admin login + Login View - at http://localhost:5000/admin-login - admin created in init-db.sql
+- Admin view with AddAnimalForm component (form to add new animal; region dropdown menu info from the form is not being posted yet).
+- Image upload as part of the AddAnimalForm.
+- Navbar with Home, AddContent, and Logout.
+- Delete button in Animal Card to delete the animal.
+- Animal Deleted View showing message when animal deleted.
+- Clickable logo to homepage.
+
 
 ### To do
 
 - Back end for the List view.
 - The List View is not done (you have to change the information and work with the junction table).
 - Api view and fetch.
-- Add the button for swtich between user and admin sides.
-- All the Admin side.
+- Page for admin to update the animal information.
+- Carousel in Animal Card - need to update the function to switch between animals to change based on index instead of id.
+- Add Animal fom - the info from the regions dropdown menu has to be posted to backend (junction table).
+
 
 
