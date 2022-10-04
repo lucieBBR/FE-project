@@ -37,7 +37,7 @@ DB_NAME=AnimalCards
 *(if you work with yarn, type yarn instead npm).
 
 - The tables should look like this:
-![data base](../public/images/DB%20design.png)
+![data base](./public/images/DB%20design.png)
 
 
 ## Run start
@@ -64,22 +64,22 @@ The app is divided in two parts: the **user** and the **admin** sides.
 - `HOW THE USER SIDE LOOKS LIKE`
 **missing** a view with the list of all the animals there are in each region.
 
-![main view](../public/images/view_main_page.png)
-![not found view](../public/images/view_notFound.png)
-![animal card view](../public/images/view_animal_card.png)
-![Api view](../public/images/view_api_RedList.png)
+![main view](./public/images/view_main_page.png)
+![not found view](./public/images/view_notFound.png)
+![animal card view](./public/images/view_animal_card.png)
+![Api view](./public/images/view_api_RedList.png)
 
 
 
 
 - `HOW THE ADMIN SIDE LOOKS LIKE`
-![form_post](../public/images/view_form_post.png)
+![form_post](./public/images/view_form_post.png)
 **missing**
-![form_update](../public/images/view_form_update.png)
-![form_error](../public/images/view_form_error.png)
+![form_update](./public/images/view_form_update.png)
+![form_error](./public/images/view_form_error.png)
 
 - `FLOW DIAGRAM`
-![flow diagram](../public/images/flow%20diagrama.pdf)
+![flow diagram](./public/images/flow%20diagrama.pdf)
 
 ### Done
 
